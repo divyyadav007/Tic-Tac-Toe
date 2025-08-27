@@ -1,15 +1,18 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: #8ddbe0;
     text-align: center;
+    font-family: Arial, sans-serif;
 }
 
+/* Container */
 .container {
-    height: 70vh;
+    min-height: 70vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -17,6 +20,7 @@ body {
     gap: 1.5vmin;
 }
 
+/* Game board */
 .game {
     height: 60vmin;
     width: 60vmin;
@@ -27,40 +31,97 @@ body {
     gap: 1.5vmin;
 }
 
+/* Each box */
 .box {
     height: 18vmin;
     width: 18vmin;
-    border-radius: 5px;
+    border-radius: 8px;
     border: none;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
     font-size: 8vmin;
-    color: red;
+    font-weight: bold;
     background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-#resetbtn, #new-btn{
-    padding: 1rem;
-    font-size: 1.25rem;
+/* Buttons */
+#resetbtn, 
+#new-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
     background-color: aquamarine;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-#msg{
+
+#resetbtn:hover, 
+#new-btn:hover {
+    background-color: #6ed3b1;
+}
+
+/* Message */
+#msg {
     color: #076e75;
     font-size: 5vmin;
 }
 
-.msg-container{
-    height: 100vmin;
+.msg-container {
+    min-height: 100vmin;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 4rem;
-
-
+    gap: 2rem;
 }
 
-.hide{
+.hide {
     display: none;
+}
+
+/* 🔥 Responsiveness */
+@media (max-width: 768px) {
+    .game {
+        height: 80vmin;
+        width: 80vmin;
+        gap: 2vmin;
+    }
+
+    .box {
+        height: 24vmin;
+        width: 24vmin;
+        font-size: 10vmin;
+    }
+
+    #msg {
+        font-size: 6vmin;
+    }
+}
+
+@media (max-width: 480px) {
+    .game {
+        height: 90vmin;
+        width: 90vmin;
+        gap: 2vmin;
+    }
+
+    .box {
+        height: 28vmin;
+        width: 28vmin;
+        font-size: 12vmin;
+    }
+
+    #msg {
+        font-size: 7vmin;
+    }
+
+    #resetbtn, #new-btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
 }
